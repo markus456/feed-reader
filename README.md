@@ -8,9 +8,13 @@ Create a `config.json` file with the following structure and replace the URL wit
 
 ```json
 {
-  "url": "https://www.reddit.com/.rss"
+  "url": "https://www.reddit.com/.rss",
+  "interval": 30
 }
 ```
+
+The `interval` is the number of seconds between feed updates. If it's not
+present, a default value of 5 seconds is used.
 
 For feeds that require authentication, pass the credentials in the URL:
 

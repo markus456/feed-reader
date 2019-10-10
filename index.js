@@ -6,6 +6,7 @@ var term = require('terminal-kit').terminal
 term.fullscreen(true)
 
 config = JSON.parse(fs.readFileSync('config.json'))
+var interval = config.interval ? config.interval : 5
 
 async function readFeed() {
     var feed = await parser.parseURL(config.url);
@@ -13,6 +14,7 @@ async function readFeed() {
     feed.items.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
 
     term.clear()
+    term('Last Update: ' + new Date() + '\n\n')
 
     feed.items.forEach(item => {
         var d = new Date(item.pubDate)
@@ -23,7 +25,7 @@ async function readFeed() {
 };
 
 
-setInterval(() => readFeed(), 5000)
+setInterval(() => readFeed(), interval * 1000)
 readFeed()
 
 process.stdin.on('data', () => {})

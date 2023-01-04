@@ -11,6 +11,6 @@
   "dependencies": {
     "html-to-text": "^5.1.1",
     "rss-parser": "^3.7.2",
-    "terminal-kit": "^1.31.4"
+    "terminal-kit": "^3.0.0"
   }
 }
